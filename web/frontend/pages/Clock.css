@@ -1,0 +1,106 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.timer-container {
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000000;
+}
+
+.clock {
+  position: relative;
+  margin-top: -1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 180px;
+  color: #0abcc5;
+  text-shadow: 1px 1px 7px;
+}
+
+.clock section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.clock section p {
+  font-size: 4rem;
+}
+
+.clock section small {
+  color: silver;
+  text-shadow: none;
+  margin-top: 2rem;
+}
+
+.b1 {
+  color: #15aeb1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 10px;
+}
+
+a:hover {
+  background: var(--clr);
+  letter-spacing: 0.25em;
+}
+
+.b1sub {
+  height: 60px;
+  width: 200px;
+
+  border-radius: 50px;
+  border: none;
+  outline: none;
+  margin: 0 35px;
+  background: #111;
+  color: #fff;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+.b2 {
+  color: #15aeb1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 10px;
+}
+
+.b2sub {
+  height: 60px;
+  width: 200px;
+
+  border-radius: 50px;
+  border: none;
+  outline: none;
+  margin: 0 35px;
+  background: #111;
+  color: #fff;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+.inputBox {
+  border: none;
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  -moz-appearance: none;
+  appearance: inherit;
+  background: #d3d3d3;
+  padding: 12px;
+  border-radius: 3px;
+  width: 250px;
+  font-size: 14px;
+  border: 20px solid transparent;
+}
