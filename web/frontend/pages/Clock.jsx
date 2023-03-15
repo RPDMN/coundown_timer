@@ -7,22 +7,22 @@ const Clock = ({
   timerMinutes,
   timerSeconds,
   themeState,
-  text,
+  title,
   subheading,
 }) => {
-  const title = text;
-
   return (
-    <Fragment>
+    <div className="clockadj">
       {themeState == 1 ? (
         <section className="timer-container">
           <section className="timer">
             <h1
               style={{
                 textAlign: "center",
-                marginTop: 50,
-                color: "white",
-                fontSize: 29,
+                color: "black",
+                fontSize: 28,
+                fontWeight: "bold",
+                lineHeight: 1,
+                marginTop: "3rem",
               }}
             >
               {title}
@@ -30,31 +30,32 @@ const Clock = ({
             <h1
               style={{
                 textAlign: "center",
-                marginTop: 10,
-                color: "white",
+                fontSize: 15,
+                color: "black",
+                lineHeight: 1.5,
               }}
             >
               {subheading}
             </h1>
             <div className="clock">
               <section>
-                <p>{timerDays}</p>
-                <small>Days</small>
+                <p className="clocknum">{timerDays}</p>
+                <small className="dms">Days</small>
               </section>
-              <span>:</span>
+              <span className="spanC">:</span>
               <section>
-                <p>{timerHours}</p>
-                <small>Hours</small>
+                <p className="clocknum">{timerHours}</p>
+                <small className="dms"> Hrs</small>
               </section>{" "}
-              <span>:</span>
+              <span className="spanC">:</span>
               <section>
-                <p>{timerMinutes}</p>
-                <small>Minutes</small>
+                <p className="clocknum">{timerMinutes}</p>
+                <small className="dms">Min</small>
               </section>{" "}
-              <span>:</span>
+              <span className="spanC">:</span>
               <section>
-                <p>{timerSeconds}</p>
-                <small>Seconds</small>
+                <p className="clocknum">{timerSeconds}</p>
+                <small className="dms">Sec</small>
               </section>
             </div>
           </section>
@@ -65,7 +66,7 @@ const Clock = ({
           <h1>Theme2</h1>
         </div>
       )}
-    </Fragment>
+    </div>
   );
 };
 

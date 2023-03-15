@@ -53,12 +53,14 @@ const TimerType = (props) => {
             }}
             autoComplete="off"
           />
-          <Select
-            label="Once it ends"
-            options={options}
-            onChange={handleSelectChange}
-            value={selected}
-          />
+          <div style={{ marginTop: "1rem" }}>
+            <Select
+              label="Once it ends"
+              options={options}
+              onChange={handleSelectChange}
+              value={selected}
+            />
+          </div>
         </div>
       ) : (
         <div style={{ marginTop: 23 }}>
@@ -70,13 +72,15 @@ const TimerType = (props) => {
             type="date"
           />
 
-          <TextField
-            label="End Date"
-            value={endDate}
-            onChange={(val) => changeEndDate(val)}
-            autoComplete="off"
-            type="date"
-          />
+          <div style={{ marginTop: "1rem" }}>
+            <TextField
+              label="End Date"
+              value={endDate}
+              onChange={(val) => changeEndDate(val)}
+              autoComplete="off"
+              type="date"
+            />
+          </div>
         </div>
       )}
     </Fragment>

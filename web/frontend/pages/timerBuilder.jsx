@@ -8,15 +8,23 @@ const timerBuilder = (props) => {
     setSelectTimer(i);
   }
   const [selectTimer, setSelectTimer] = useState(1);
-  const [title, setTitle] = useState("Hurry up!");
+  const [countdownTimer1, setCountdownTimer1] = useState(
+    "First Countdown Counter"
+  );
+  const [title1, setTitle1] = useState("Hurry up!");
   const [subheading, setSubheading] = useState("Sale ends in:");
   const [min, setMin] = useState(12);
   const [start, setStart] = useState();
   const [end, setEnd] = useState();
+
+  const handleCountdownNameChange = (val) => {
+    setCountdownTimer1(val);
+    props.setCountdownName(val);
+  };
+
   const handleTitleChange = (val) => {
-    //console.log(val);
-    setTitle(val);
-    props.setText(val);
+    setTitle1(val);
+    props.setTitle(val);
   };
 
   const handleSubheadingChange = (val) => {
@@ -29,7 +37,7 @@ const timerBuilder = (props) => {
   }, [min]);
 
   useEffect(() => {
-    props.setCounterDate(end);
+    props.setStartDate(end);
   }, [end]);
 
   useEffect(() => {
@@ -42,27 +50,33 @@ const timerBuilder = (props) => {
         <div class="Polaris-Card__Section">
           <TextField
             label="Countdown name"
-            value={title}
-            //onChange={(val) => handleTitleChange(val)}
+            value={countdownTimer1}
+            onChange={(val) => handleCountdownNameChange(val)}
             autoComplete="on"
           />
-          <div class="Polaris-Labelled__HelpText" id="nameHelpText">
+          <div
+            class="Polaris-Labelled__HelpText"
+            id="nameHelpText"
+            style={{ marginBottom: "1rem" }}
+          >
             Only visible to you. For your own internal reference.
           </div>
 
           <TextField
             label="Title"
-            value={title}
+            value={title1}
             onChange={(val) => handleTitleChange(val)}
             autoComplete="off"
           />
 
-          <TextField
-            label="Subheading"
-            value={subheading}
-            onChange={(val) => handleSubheadingChange(val)}
-            autoComplete="off"
-          />
+          <div style={{ marginTop: "1rem" }}>
+            <TextField
+              label="Subheading"
+              value={subheading}
+              onChange={(val) => handleSubheadingChange(val)}
+              autoComplete="off"
+            />
+          </div>
         </div>
 
         <div class="Polaris-Card__Section">
@@ -96,6 +110,7 @@ const timerBuilder = (props) => {
             class="Polaris-Button Polaris-Button--fullWidth"
             size="large "
             fullWidth="true"
+            onClick={() => props.createTimerFunction()}
           >
             Add product
           </Button>
