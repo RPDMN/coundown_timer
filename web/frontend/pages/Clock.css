@@ -10,7 +10,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #ffffff;
+  background: rgba(254, 255, 255, 0.416);
 }
 
 .clock {
@@ -119,7 +119,29 @@ a:hover {
   position: sticky;
   top: 22px;
   width: auto;
-  /* height: 1rem; */
+}
+
+input[type="date"] {
+  background: transparent;
+  color: black;
+  width: 100%;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(50%);
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  background: transparent;
+  bottom: 0;
+  color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
 }
 
 /* .inputBox {
@@ -135,3 +157,12 @@ a:hover {
   font-size: 14px;
   border: 20px solid transparent;
 } */
+
+.timerBuilder {
+  margin-top: -1rem;
+}
+
+.Polaris-Page-Header {
+  margin-left: -2.5rem !important;
+  margin-top: -2rem;
+}

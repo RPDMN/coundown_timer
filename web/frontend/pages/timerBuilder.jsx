@@ -37,16 +37,16 @@ const timerBuilder = (props) => {
   }, [min]);
 
   useEffect(() => {
-    props.setStartDate(end);
+    props.setEndDate(end);
   }, [end]);
 
   useEffect(() => {
-    props.setNow(start);
+    props.setStartDate(start);
   }, [start]);
 
   return (
     <Card>
-      <Fragment>
+      <div className="timerBuilder">
         <div class="Polaris-Card__Section">
           <TextField
             label="Countdown name"
@@ -106,16 +106,27 @@ const timerBuilder = (props) => {
         </div>
 
         <div class="Polaris-Card__Section">
-          <Button
-            class="Polaris-Button Polaris-Button--fullWidth"
-            size="large "
-            fullWidth="true"
-            onClick={() => props.createTimerFunction()}
-          >
-            Add product
-          </Button>
+          {props.buttonSelector === 1 ? (
+            <Button
+              class="Polaris-Button Polaris-Button--fullWidth"
+              size="large "
+              fullWidth="true"
+              onClick={() => props.createTimerFunction()}
+            >
+              Add product
+            </Button>
+          ) : (
+            <Button
+              class="Polaris-Button Polaris-Button--fullWidth"
+              size="large "
+              fullWidth="true"
+              onClick={() => props.createTimerFunction()}
+            >
+              See it in the store
+            </Button>
+          )}
         </div>
-      </Fragment>
+      </div>
     </Card>
   );
 };

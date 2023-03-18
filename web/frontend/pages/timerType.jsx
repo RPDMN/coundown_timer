@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect, useState, useCallback } from "react";
-import { Select, TextField, DatePicker, Popover } from "@shopify/polaris";
+import "./Clock.css";
+import { Select, TextField, Popover } from "@shopify/polaris";
 //import { StatusValue } from "@shopify/polaris/build/ts/latest/src/components/Badge";
 const TimerType = (props) => {
   const [selected, setSelected] = useState("today");
@@ -68,16 +69,15 @@ const TimerType = (props) => {
             label="Start Date"
             value={startDate}
             onChange={(val) => changeStartDate(val)}
-            autoComplete="off"
+            autoComplete="on"
             type="date"
           />
-
           <div style={{ marginTop: "1rem" }}>
             <TextField
               label="End Date"
               value={endDate}
               onChange={(val) => changeEndDate(val)}
-              autoComplete="off"
+              autoComplete="on"
               type="date"
             />
           </div>

@@ -9,6 +9,7 @@ import {
   Heading,
   Button,
   ButtonGroup,
+  Tag,
 } from "@shopify/polaris";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
@@ -31,8 +32,43 @@ export default function HomePage() {
   const [title, setTitle] = useState("Hurry Up! ");
   const [subheading, setSubheading] = useState("Sale ends in:");
   const [now, setNow] = useState();
-  const [startDate, setStartDate] = useState("12 june 2023");
+  const [startDate, setStartDate] = useState("12 feb 2023");
+  const [endDate, setEndDate] = useState("12 june 2023");
   const [published, setPublished] = useState("no");
+  const publishButton = {
+    content: "Publish",
+    onAction: () => {
+      createTimerFunction();
+    },
+  };
+
+  // const updateButton = {
+  //   content: "up",
+  //   onAction: () => {
+  //     updateTimerFunction();
+  //   },
+  // };
+
+  // const updateButton = {
+  //   content: "Update",
+  //   onAction: () => {
+  //     updateTimerFunction();
+  //   },
+  // };
+
+  // const deleteButton = {
+  //   content: "Delete",
+  //   onAction: () => {
+  //     deleteTimerFunction();
+  //   },
+  // };
+
+  useEffect(() => {
+    console.log(startDate);
+    console.log(endDate);
+  }, [startDate, endDate]);
+
+  const secondaryActions = [{ content: "Delete", url: "/bar", loading: false }];
   const shopName = window.Shopify
     ? window.Shopify.shop
     : window.location.origin;
@@ -55,7 +91,7 @@ export default function HomePage() {
 
   useEffect(() => {
     axios
-      .get(`${url}/getTimerByShopId/req.body.ri`)
+      .get(`${url}/getTimerByShopId/req.body.ripuuuu`)
       .then((response) => {
         console.log(shopName);
         console.log(response.data);
@@ -78,25 +114,25 @@ export default function HomePage() {
   // };
 
   const createTimerFunction = async () => {
-    axios
-      .post("http://localhost:3000/create/timer", {
-        timerName: countdownName,
-        title: title,
-        subHeading: subheading,
-        startDate: "req.body",
-        endDate: "req.body.endDate",
-        fixedMinutes: "req.body.fixedMinutes",
-        repeat: true,
-        timertType: "req.body.timertType",
-        postion: "req.body.postion",
-        shop: "req.body.ri",
-      })
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    // axios
+    //   .post("http://localhost:3000/create/timer", {
+    //     timerName: countdownName,
+    //     title: title,
+    //     subHeading: subheading,
+    //     startDate: "req.body",
+    //     endDate: "req.body.endDate",
+    //     fixedMinutes: "req.body.fixedMinutes",
+    //     repeat: true,
+    //     timertType: "req.body.timertType",
+    //     postion: "req.body.postion",
+    //     shop: "req.body.ri",
+    //   })
+    //   .then((response) => {
+    //     console.log(response.data);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
 
     setButtonSelector(2);
   };
@@ -137,7 +173,7 @@ export default function HomePage() {
   let interval;
 
   const startTimer = () => {
-    const countDownDate = new Date(startDate).getTime();
+    const countDownDate = new Date(endDate).getTime();
     interval = setInterval(() => {
       const now = new Date().getTime();
       //console.log(now);
@@ -167,134 +203,162 @@ export default function HomePage() {
     startTimer();
   }, []);
 
-  useEffect(() => {
-    setStartDate("12 feb 2000");
-    setTimerDays(0);
-    setTimerHours(0);
-    setTimerMinutes(timerMinutes);
-    setTimerSeconds(2);
-    startTimer();
-  }, [timerMinutes]);
+  // useEffect(() => {
+  //   setStartDate("12 feb 2000");
+  //   setTimerDays(0);
+  //   setTimerHours(0);
+  //   setTimerMinutes(timerMinutes);
+  //   setTimerSeconds(2);
+  //   startTimer();
+  // }, [timerMinutes]);
 
   useEffect(() => {
     console.log(countdownName);
   }, [title]);
 
   return (
-    <div style={{ display: "flex", justifyContent: "space-evenly" }}>
-      <Page>
-        <TitleBar title="App name" primaryAction={null} />
-        <div class="Polaris-Page Polaris-Page--FullWidth">
-          <div class="Polaris-Page-Header Polaris-Page-Header--hasNavigation Polaris-Page-Header--hasActionMenu Polaris-Page-Header--mobileView Polaris-Page-Header--mediumTitle">
-            <div class="Polaris-Page-Header__Row">
-              <div class="Polaris-Page-Header__BreadcrumbWrapper">
-                <nav role="navigation">
-                  <button class="Polaris-Breadcrumbs__Breadcrumb" type="button">
-                    <span class="Polaris-Breadcrumbs__Icon">
-                      <span class="Polaris-Icon">
-                        <span class="Polaris-VisuallyHidden"></span>
-                        <svg
-                          viewBox="0 0 20 20"
-                          class="Polaris-Icon__Svg"
-                          focusable="false"
-                          aria-hidden="true"
-                        >
-                          <path d="M17 9h-11.586l3.293-3.293a.999.999 0 1 0-1.414-1.414l-5 5a.999.999 0 0 0 0 1.414l5 5a.997.997 0 0 0 1.414 0 .999.999 0 0 0 0-1.414l-3.293-3.293h11.586a1 1 0 1 0 0-2z"></path>
-                        </svg>
-                      </span>
-                    </span>
-                    <span class="Polaris-VisuallyHidden">Home</span>
-                  </button>
-                </nav>
-              </div>
-              <div class="Polaris-Page-Header__TitleWrapper">
-                <div class="Polaris-Header-Title__TitleWithMetadataWrapper">
-                  <h1 class="Polaris-Header-Title Polaris-Header-Title__TitleWithSubtitle">
-                    {countdownName}
-                  </h1>
-                  <div class="Polaris-Header-Title__TitleMetadata">
-                    <span class="Polaris-Badge">
-                      <span>Not published</span>
-                    </span>
-                  </div>
-                </div>
-                <div></div>
-                <div class="Polaris-Header-Title__SubTitle">
-                  <p>Timer ID: sdf3453534534mmkm34543</p>
-                </div>
-              </div>
-              <div class="Polaris-Page-Header__RightAlign">
-                <div class="Polaris-Page-Header__Actions">
-                  <div class="Polaris-ActionMenu">
-                    <div>
-                      <div class="Polaris-ActionMenu-RollupActions__RollupActivator"></div>
-                    </div>
-                  </div>
-                  <div class="Polaris-Page-Header__PrimaryActionWrapper">
-                    <div>
-                      {buttonSelector === 1 ? (
-                        <button
-                          class="Polaris-Button Polaris-Button--primary"
-                          aria-disabled="false"
-                          type="button"
-                          onClick={() => createTimerFunction()}
-                        >
-                          <span class="Polaris-Button__Text">Publish</span>
-                        </button>
-                      ) : (
-                        <div
-                          style={{ display: "flex", justifyContent: "center" }}
-                        >
-                          <button
-                            type="button"
-                            class="Polaris-ActionList__Item Polaris-ActionList--destructive"
-                            onClick={() => deleteTimerFunction()}
-                          >
-                            <span class="Polaris-ActionList__Text">Delete</span>
-                          </button>
+    <div>
+      <div>
+        <Layout.Section>
+          <Page>
+            {/* <TitleBar
+              title="App name"
+              primaryAction={publishButton}
+              // breadcrumbs={[{ content: "Breadcrumb" }]}
+              //secondaryActions={[deleteButton]}
+            ></TitleBar> */}
 
-                          <button
-                            class="Polaris-Button Polaris-Button--primary"
-                            aria-disabled="false"
-                            type="button"
-                            onClick={() => updateTimerFunction()}
-                          >
-                            <span
-                              class="Polaris-Button__Text"
-                              //style={{ margin: ".2rem" }}
-                            >
-                              Update
+            <div class="Polaris-Page Polaris-Page--FullWidth">
+              <div class="Polaris-Page-Header ">
+                <div class="Polaris-Page-Header__Row">
+                  <div class="Polaris-Page-Header__BreadcrumbWrapper">
+                    <nav role="navigation"></nav>
+                  </div>
+                  <div
+                    class="Polaris-Page-Header__TitleWrapper"
+                    style={{
+                      margineTop: "-4rem ",
+                      marginLeft: "-12rem",
+                    }}
+                  >
+                    <div class="Polaris-Header-Title__TitleWithMetadataWrapper">
+                      <h1 class="Polaris-Header-Title Polaris-Header-Title__TitleWithSubtitle">
+                        {countdownName}
+                      </h1>
+                      <div>
+                        {buttonSelector === 1 ? (
+                          <div class="Polaris-Header-Title__TitleMetadata">
+                            <span class="Polaris-Badge">
+                              <span>Not published</span>
                             </span>
-                          </button>
+                          </div>
+                        ) : (
+                          <div class="Polaris-Header-Title__TitleMetadata">
+                            <span
+                              class="Polaris-Badge"
+                              style={{ color: "green" }}
+                            >
+                              <span>published</span>
+                            </span>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                    <div></div>
+                    <div class="Polaris-Header-Title__SubTitle">
+                      <p>Timer ID: sdf3453534534mmkm34543</p>
+                    </div>
+                  </div>
+                  <div class="Polaris-Page-Header__RightAlign">
+                    <div class="Polaris-Page-Header__Actions">
+                      <div class="Polaris-ActionMenu">
+                        <div>
+                          <div class="Polaris-ActionMenu-RollupActions__RollupActivator"></div>
                         </div>
-                      )}
+                      </div>
+                      <div class="Polaris-Page-Header__PrimaryActionWrapper">
+                        <div>
+                          {buttonSelector === 1 ? (
+                            <button
+                              class="Polaris-Button Polaris-Button--primary"
+                              aria-disabled="true"
+                              type="button"
+                              onClick={() => createTimerFunction()}
+                            >
+                              <span class="Polaris-Button__Text">Publish</span>
+                            </button>
+                          ) : (
+                            <div
+                              style={{
+                                display: "flex",
+                                justifyContent: "center",
+                              }}
+                            >
+                              <button
+                                type="button"
+                                class="Polaris-ActionList__Item Polaris-ActionList--destructive"
+                                onClick={() => deleteTimerFunction()}
+                              >
+                                <span class="Polaris-ActionList__Text">
+                                  Delete
+                                </span>
+                              </button>
+
+                              <button
+                                class="Polaris-Button Polaris-Button--primary"
+                                aria-disabled="false"
+                                type="button"
+                                onClick={() => updateTimerFunction()}
+                              >
+                                <span
+                                  class="Polaris-Button__Text"
+                                  //style={{ margin: ".2rem" }}
+                                >
+                                  Update
+                                </span>
+                              </button>
+                            </div>
+                          )}
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
+              <hr
+                style={{
+                  width: "147%",
+                  marginLeft: "-14rem",
+                  borderColor: "white",
+                  // color: "white",
+                }}
+              />
             </div>
-          </div>
-        </div>
-      </Page>
-      <Page narrowWidth>
-        <div>
-          <Layout.Section>
-            <TimerBuilder
-              setCountdownName={setCountdownName}
-              setTitle={setTitle}
-              setSubheading={setSubheading}
-              setTimerMinutes={setTimerMinutes}
-              setStartDate={setStartDate}
-              setNow={setNow}
-              createTimerFunction={createTimerFunction}
-            />
-          </Layout.Section>
-        </div>
-      </Page>
+          </Page>
+        </Layout.Section>
+      </div>
 
-      <Page narrowWidth>
-        <Card sectioned>
-          {/* <div
+      <div style={{ display: "flex", justifyContent: "space-evenly" }}>
+        <Page narrowWidth>
+          <div style={{ marginLeft: "-11rem" }}>
+            <Layout.Section>
+              <TimerBuilder
+                setCountdownName={setCountdownName}
+                setTitle={setTitle}
+                setSubheading={setSubheading}
+                setTimerMinutes={setTimerMinutes}
+                setEndDate={setEndDate}
+                setStartDate={setStartDate}
+                createTimerFunction={createTimerFunction}
+                buttonSelector={buttonSelector}
+              />
+            </Layout.Section>
+          </div>
+        </Page>
+
+        <Page narrowWidth>
+          <Card sectioned>
+            {/* <div
             style={{
               fontSize: "1rem!important",
               width: "22rem",
@@ -302,18 +366,19 @@ export default function HomePage() {
               position: "sticky",
             }}
           > */}
-          <Clock
-            timerDays={timerDays}
-            timerHours={timerHours}
-            timerMinutes={timerMinutes}
-            timerSeconds={timerSeconds}
-            themeState={themeState}
-            title={title}
-            subheading={subheading}
-          />
-          {/* </div> */}
-        </Card>
-      </Page>
+            <Clock
+              timerDays={timerDays}
+              timerHours={timerHours}
+              timerMinutes={timerMinutes}
+              timerSeconds={timerSeconds}
+              themeState={themeState}
+              title={title}
+              subheading={subheading}
+            />
+            {/* </div> */}
+          </Card>
+        </Page>
+      </div>
     </div>
   );
 }
