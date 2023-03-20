@@ -11,6 +11,12 @@ import {
   ButtonGroup,
   Tag,
 } from "@shopify/polaris";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import {
+  faSpinner,
+  faUpRightFromSquare,
+} from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { TitleBar } from "@shopify/app-bridge-react";
@@ -35,33 +41,13 @@ export default function HomePage() {
   const [startDate, setStartDate] = useState("12 feb 2023");
   const [endDate, setEndDate] = useState("12 june 2023");
   const [published, setPublished] = useState("no");
+  const [isLoading, setIsLoading] = useState(false);
   const publishButton = {
     content: "Publish",
     onAction: () => {
       createTimerFunction();
     },
   };
-
-  // const updateButton = {
-  //   content: "up",
-  //   onAction: () => {
-  //     updateTimerFunction();
-  //   },
-  // };
-
-  // const updateButton = {
-  //   content: "Update",
-  //   onAction: () => {
-  //     updateTimerFunction();
-  //   },
-  // };
-
-  // const deleteButton = {
-  //   content: "Delete",
-  //   onAction: () => {
-  //     deleteTimerFunction();
-  //   },
-  // };
 
   useEffect(() => {
     console.log(startDate);
@@ -78,16 +64,6 @@ export default function HomePage() {
   };
 
   const url = "http://localhost:3000";
-  // state
-  // init state - useeffect - state
-
-  //first time (state - no data)
-  // create button
-  // state - save response
-
-  // old user (state - data)
-  // update/ delete
-  // state already has daa
 
   useEffect(() => {
     axios
@@ -114,25 +90,31 @@ export default function HomePage() {
   // };
 
   const createTimerFunction = async () => {
-    // axios
-    //   .post("http://localhost:3000/create/timer", {
-    //     timerName: countdownName,
-    //     title: title,
-    //     subHeading: subheading,
-    //     startDate: "req.body",
-    //     endDate: "req.body.endDate",
-    //     fixedMinutes: "req.body.fixedMinutes",
-    //     repeat: true,
-    //     timertType: "req.body.timertType",
-    //     postion: "req.body.postion",
-    //     shop: "req.body.ri",
-    //   })
-    //   .then((response) => {
-    //     console.log(response.data);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
+    setIsLoading(true);
+    await axios
+      .post("http://localhost:3000/create/timer", {
+        timerName: countdownName,
+        title: title,
+        subHeading: subheading,
+        startDate: "req.body",
+        endDate: "req.body.endDate",
+        fixedMinutes: "req.body.fixedMinutes",
+        repeat: true,
+        timertType: "req.body.timertType",
+        postion: "req.body.postion",
+        shop: "req.body.ri",
+      })
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    setTimeout(() => {
+      console.log("hello");
+      setIsLoading(false);
+    }, 30000);
 
     setButtonSelector(2);
   };
@@ -186,15 +168,15 @@ export default function HomePage() {
       const minutes = Math.floor((distance % (60 * 60 * 1000)) / (1000 * 60));
       const seconds = Math.floor((distance % (60 * 1000)) / 1000);
 
-      if (distance <= 0) {
-        //stop the timer
-        clearInterval(interval.clearInterval);
-      } else {
-        setTimerDays(days);
-        setTimerHours(hours);
-        setTimerMinutes(minutes);
-        setTimerSeconds(seconds);
-      }
+      // if (distance <= 0) {
+      //   //stop the timer
+      //   clearInterval(interval.clearInterval);
+      // } else {
+      //   setTimerDays(days);
+      //   setTimerHours(hours);
+      //   setTimerMinutes(minutes);
+      //   setTimerSeconds(seconds);
+      // }
     });
   };
 
@@ -234,13 +216,7 @@ export default function HomePage() {
                   <div class="Polaris-Page-Header__BreadcrumbWrapper">
                     <nav role="navigation"></nav>
                   </div>
-                  <div
-                    class="Polaris-Page-Header__TitleWrapper"
-                    style={{
-                      margineTop: "-4rem ",
-                      marginLeft: "-12rem",
-                    }}
-                  >
+                  <div class="headingLeft">
                     <div class="Polaris-Header-Title__TitleWithMetadataWrapper">
                       <h1 class="Polaris-Header-Title Polaris-Header-Title__TitleWithSubtitle">
                         {countdownName}
@@ -279,13 +255,36 @@ export default function HomePage() {
                       <div class="Polaris-Page-Header__PrimaryActionWrapper">
                         <div>
                           {buttonSelector === 1 ? (
+                            // <button
+                            //   class="Polaris-Button Polaris-Button--primary"
+                            //   aria-disabled="true"
+                            //   type="button"
+                            //   disabled={isLoading}
+                            //   onClick={() => createTimerFunction()}
+                            // >
+                            //   <span class="Polaris-Button__Text">Publish</span>
+                            // </button>
                             <button
                               class="Polaris-Button Polaris-Button--primary"
-                              aria-disabled="true"
-                              type="button"
                               onClick={() => createTimerFunction()}
+                              disabled={isLoading}
                             >
-                              <span class="Polaris-Button__Text">Publish</span>
+                              {isLoading && (
+                                <i
+                                  className="fa fa-refresh fa-spin"
+                                  style={{ marginRight: "5px" }}
+                                />
+                              )}
+                              {isLoading && (
+                                <span class="Polaris-Button__Text">
+                                  Publishing
+                                </span>
+                              )}
+                              {!isLoading && (
+                                <span class="Polaris-Button__Text">
+                                  publish
+                                </span>
+                              )}
                             </button>
                           ) : (
                             <div
@@ -323,6 +322,7 @@ export default function HomePage() {
                       </div>
                     </div>
                   </div>
+                  {/* <ButtonLoader /> */}
                 </div>
               </div>
               <hr
@@ -338,9 +338,9 @@ export default function HomePage() {
         </Layout.Section>
       </div>
 
-      <div style={{ display: "flex", justifyContent: "space-evenly" }}>
+      <div className="selectorAndClockCombined">
         <Page narrowWidth>
-          <div style={{ marginLeft: "-11rem" }}>
+          <div className="countdownSelector">
             <Layout.Section>
               <TimerBuilder
                 setCountdownName={setCountdownName}
@@ -357,6 +357,23 @@ export default function HomePage() {
         </Page>
 
         <Page narrowWidth>
+          <div
+            style={{
+              display: "flex",
+              marginLeft: "8rem",
+              marginBottom: "1rem",
+            }}
+          >
+            <div style={{ marginRight: "1rem" }}> App Preview</div>
+            <a id="clickableAwesomeFont" style={{ cursor: "pointer" }} href="#">
+              <FontAwesomeIcon
+                icon={faUpRightFromSquare}
+                onClick={() => {
+                  console.log("hello ");
+                }}
+              />
+            </a>
+          </div>
           <Card sectioned>
             {/* <div
             style={{
@@ -366,16 +383,18 @@ export default function HomePage() {
               position: "sticky",
             }}
           > */}
-            <Clock
-              timerDays={timerDays}
-              timerHours={timerHours}
-              timerMinutes={timerMinutes}
-              timerSeconds={timerSeconds}
-              themeState={themeState}
-              title={title}
-              subheading={subheading}
-            />
-            {/* </div> */}
+
+            <div className="second">
+              <Clock
+                timerDays={timerDays}
+                timerHours={timerHours}
+                timerMinutes={timerMinutes}
+                timerSeconds={timerSeconds}
+                themeState={themeState}
+                title={title}
+                subheading={subheading}
+              />
+            </div>
           </Card>
         </Page>
       </div>

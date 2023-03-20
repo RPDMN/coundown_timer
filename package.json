@@ -12,9 +12,13 @@
     "deploy": "shopify app deploy"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.3.0",
+    "@fortawesome/free-solid-svg-icons": "^6.3.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "@shopify/app": "3.44.1",
     "@shopify/cli": "3.44.1",
-    "axios": "^1.3.4"
+    "axios": "^1.3.4",
+    "font-awesome-icons": "^1.6.0"
   },
   "author": "ripud"
 }

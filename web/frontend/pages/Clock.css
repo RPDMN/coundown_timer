@@ -166,3 +166,40 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   margin-left: -2.5rem !important;
   margin-top: -2rem;
 }
+
+.headingLeft {
+  margin-left: -12rem;
+}
+
+.countdownSelector {
+  margin-left: -11rem;
+}
+
+.selectorAndClockCombined {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+@media all and (max-width: 1400px) {
+  .headingLeft {
+    margin-left: -2rem !important;
+  }
+
+  .countdownSelector {
+    margin-left: -2rem;
+  }
+}
+
+@media all and (max-width: 670px) {
+  .selectorAndClockCombined {
+    display: block;
+  }
+  .countdownSelector {
+    width: auto;
+  }
+}
+
+#clickableAwesomeFont {
+  cursor: pointer;
+  outline: 0;
+}
