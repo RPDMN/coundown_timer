@@ -1,0 +1,17 @@
+.status-header-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.status-header-inner-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.status-header-button-group {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}

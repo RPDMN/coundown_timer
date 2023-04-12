@@ -1,0 +1,18 @@
+.clock-bar--container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 1px, rgba(0, 0, 0, 0.25) 0px 0px 1px;
+}
+
+.sticky-0 {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.clockbar--table {
+  text-align: center;
+}

@@ -1,0 +1,69 @@
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+.clock-container {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.home-page-status-panel {
+  margin-top: 1rem;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.Polaris-Page-Header__Row {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  padding: 16px 0;
+}
+
+.timer-type-top-bar {
+  display: flex;
+  align-items: center;
+}
+
+.timer-type {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  max-width: 20%;
+  margin-left: 13%;
+}
+
+.timer-selector-card-holder {
+  display: flex;
+}
+
+.timer-selector-card-1 {
+  max-width: 20%;
+  margin-left: 17%;
+}
+
+.timer-selector-card-2 {
+  max-width: 20%;
+  margin-left: 5%;
+}

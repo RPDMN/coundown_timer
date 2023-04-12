@@ -1,0 +1,37 @@
+.colorPicker {
+  height: 36px;
+  width: 48px;
+  border: 1px solid rgb(186, 191, 195);
+  border-radius: 4px;
+  justify-self: end;
+  cursor: pointer;
+}
+
+.top-shadow {
+  height: 80px;
+  background: linear-gradient(
+    rgba(231, 231, 232, 0) 30.63%,
+    rgb(230, 230, 231) 69.79%
+  );
+  border-radius: 8px;
+  max-width: 420px;
+  min-width: 360px;
+}
+
+.bottom-shadow {
+  height: 80px;
+  background: linear-gradient(
+    rgba(231, 231, 232, 0) 30.63%,
+    rgb(230, 230, 231) 69.79%
+  );
+  border-radius: 8px;
+  transform: rotate(180deg);
+  max-width: 420px;
+  min-width: 360px;
+  margin-top: 10px;
+}
+
+.single-color-radio-button {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}

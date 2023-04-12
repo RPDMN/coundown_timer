@@ -1,0 +1,32 @@
+{
+  "env": {
+    "node": true,
+    "jest": true
+  },
+  "extends": [
+    "airbnb-base",
+    "plugin:jest/recommended",
+    "plugin:security/recommended"
+  ],
+  "plugins": ["jest", "security"],
+  "parserOptions": {
+    "ecmaVersion": 2020
+  },
+  "rules": {
+    "quotes": [2, "double", { "avoidEscape": true }],
+    "comma-dangle": ["error", "never"],
+    "max-len": ["error", { "code": 150 }],
+    "no-console": "warn",
+    "func-names": "off",
+    "no-underscore-dangle": "off",
+    "consistent-return": 0,
+    "jest/expect-expect": "off",
+    "security/detect-object-injection": 0,
+    "nonblock-statement-body-position": "off",
+    "curly": "error",
+    "arrow-body-style": "off",
+    "implicit-arrow-linebreak": "warn",
+    "object-curly-newline": "off",
+    "operator-linebreak": "off"
+  }
+}

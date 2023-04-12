@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .container {
+        background: linear-gradient(153deg, #00fff0, #d285ff);
+        border-radius: 8px;
+        text-align: center;
+        padding: 2rem;
+        font-family: sans-serif;
+      }
+
+      .header,
+      .sub-header {
+        color: red;
+      }
+
+      .header {
+        font-size: 1.5rem;
+      }
+
+      .sub-header {
+        font-size: 1.2rem;
+        margin-top: 0.5rem;
+      }
+
+      .timer {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+        gap: 0.5rem;
+        margin-top: 1rem;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .bold {
+        font-weight: bold;
+        font-size: 2.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header bold">Hurry up!</div>
+      <div class="sub-header">Sales end in:</div>
+      <div class="timer">
+        <div class="bold">00</div>
+        <div class="bold">:</div>
+        <div class="bold">00</div>
+        <div class="bold">:</div>
+        <div class="bold">00</div>
+        <div class="bold">:</div>
+        <div class="bold">00</div>
+
+        <div>Days</div>
+        <div></div>
+        <div>Hrs</div>
+        <div></div>
+        <div>Mins</div>
+        <div></div>
+        <div>Secs</div>
+      </div>
+    </div>
+  </body>
+</html>

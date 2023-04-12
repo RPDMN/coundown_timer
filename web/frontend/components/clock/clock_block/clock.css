@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.clock--container-max {
+  max-width: 420px;
+  min-width: 320px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.clock--container-sticky {
+  position: sticky;
+  top: 0;
+}
+
+.Electric {
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 0.5rem;
+}
+
+.clock--header {
+  text-align: center;
+  color: black;
+  font-size: 1.8rem;
+  font-weight: bold;
+  word-break: break-all;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.clock--sub-header {
+  text-align: center;
+  font-size: 1rem;
+  color: black;
+  word-break: break-all;
+  line-height: 1.5;
+}
+
+/* .timer-container {
+  padding: 2rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(254, 255, 255, 0.416);
+  position: sticky;
+  top: 22px;
+  width: 20rem; 
+}*/
+
+a:hover {
+  background: var(--clr);
+  letter-spacing: 0.25em;
+}
+
+.clock {
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 0.5rem;
+}
+.clock .bold {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.clock td {
+  padding: 0.25rem;
+}
+
+input[type="date"] {
+  background: transparent;
+  color: black;
+  width: 100%;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(50%);
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  background: transparent;
+  bottom: 0;
+  color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+}

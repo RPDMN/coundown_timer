@@ -1,0 +1,26 @@
+<timer-block--parent
+  id="timer-block--parent-{{ block.settings.timer_id }}"
+  timerId="{{ block.settings.timer_id }}"
+  class="timely-container"></timer-block--parent>
+
+
+{% schema %}
+  {
+    "name": "Timely",
+    "target": "section",
+
+    "stylesheet": "timer.css",
+    "javascript": "timer.js",
+    "enabled_on": {
+      "templates": ["*"],
+      "groups": ["header", "footer"]
+    },
+    "settings": [
+      {
+        "type": "text",
+        "id": "timer_id",
+        "label": "Timer ID"
+      }
+    ]
+  }
+{% endschema %}

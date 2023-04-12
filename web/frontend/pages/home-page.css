@@ -1,0 +1,39 @@
+.home-page--loader-container {
+  align-items: center;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.home-page--loader-sub {
+  padding: 1.3rem;
+  border-bottom: 1px solid #aaa5;
+}
+
+.home-page--loader {
+  height: 8px;
+  width: 100%;
+  border-radius: 10px;
+  background-color: #ddd;
+  animation: glow 1s infinite alternate ease-in-out;
+}
+
+.home-page--loader-sub:nth-child(2n) .home-page--loader {
+  animation-delay: 0.5s;
+}
+
+.home-page--loader:first-child {
+  margin-top: 0;
+}
+
+.home-page--loader-sub:last-child {
+  border-bottom: 0;
+}
+
+@keyframes glow {
+  from {
+    background-color: #ddd;
+  }
+  to {
+    background-color: #eee;
+  }
+}

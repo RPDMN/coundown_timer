@@ -1,0 +1,28 @@
+.timer-selector {
+  cursor: pointer;
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.timer-selector--table-row {
+  border-bottom: 1px solid #aaa5;
+}
+.timer-selector--table-row:last-child {
+  border-bottom: none;
+}
+
+.timer-selector--table-row:hover {
+  background-color: #eee;
+}
+
+.timer-selector--table-data {
+  padding: 1rem 1.5rem;
+}
+
+.timer-selector--badge-green {
+  background-color: #008060 !important;
+  color: #fff !important;
+}

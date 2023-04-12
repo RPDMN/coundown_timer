@@ -1,0 +1,51 @@
+.timely-container {
+  /* background: linear-gradient(153deg, #00fff0, #d285ff); */
+  border-radius: 8px;
+  text-align: center;
+  /* padding: 3rem 2rem 2rem; */
+  font-family: sans-serif;
+}
+
+.timely-header,
+.timely-sub-header {
+  color: black;
+}
+
+.timely-header {
+  font-size: 27px;
+  line-height: 1.1;
+}
+
+.timely-sub-header {
+  font-size: 16px;
+  margin-bottom: 10px;
+  margin-top: 2px;
+}
+
+.timely-timer {
+  display: inline-grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+  gap: 0.5rem;
+  /* max-width: 260px; */
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.1;
+}
+
+.timely-bold {
+  font-weight: bold;
+  font-size: 39px;
+}
+
+.time-type {
+  font-size: 12px;
+  color: #000;
+}
+
+span.timely-bold {
+  color: #000;
+}
+
+.timely-opaq {
+  opacity: 0;
+}
